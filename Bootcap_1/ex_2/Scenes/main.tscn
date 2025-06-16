@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://x3cl3n5sgak0"]
+
+[ext_resource type="PackedScene" uid="uid://qnpio6skt6ak" path="res://Scenes/Character.tscn" id="1_7r8ka"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(10, 10)
+
+[node name="Character Smooth" parent="." instance=ExtResource("1_7r8ka")]
+speed = 12
+max_speed = 25
+acceleration = 50
+friction = 100

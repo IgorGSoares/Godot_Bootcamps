@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://x3cl3n5sgak0"]
+
+[ext_resource type="PackedScene" uid="uid://qnpio6skt6ak" path="res://Scenes/Icon.tscn" id="1_7r8ka"]
+[ext_resource type="Script" path="res://Scripts/Smooth_Move.gd" id="2_2xqt3"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
+
+[node name="Icon Smooth" parent="." instance=ExtResource("1_7r8ka")]
+script = ExtResource("2_2xqt3")
+speed = 75
+max_speed = 90
+acceleration = 150
+friction = 250

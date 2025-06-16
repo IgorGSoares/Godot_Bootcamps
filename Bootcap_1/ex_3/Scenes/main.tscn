@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://x3cl3n5sgak0"]
+
+[ext_resource type="PackedScene" uid="uid://qnpio6skt6ak" path="res://Scenes/Character.tscn" id="1_7r8ka"]
+[ext_resource type="PackedScene" uid="uid://bocrkdxm3to40" path="res://Scenes/canvas_layer.tscn" id="1_akefn"]
+[ext_resource type="PackedScene" uid="uid://evmfcfx8qkox" path="res://Scenes/coin.tscn" id="2_tcpuk"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("1_akefn")]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(10, 10)
+
+[node name="Character Smooth" parent="." instance=ExtResource("1_7r8ka")]
+speed = 12
+max_speed = 25
+acceleration = 50
+friction = 100
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("2_tcpuk")]
+position = Vector2(15, 0)
+scale = Vector2(0.45, 0.45)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("2_tcpuk")]
+position = Vector2(5, -21)
+scale = Vector2(0.45, 0.45)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("2_tcpuk")]
+position = Vector2(-23, 23)
+scale = Vector2(0.45, 0.45)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("2_tcpuk")]
+position = Vector2(-38, -18)
+scale = Vector2(0.45, 0.45)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("2_tcpuk")]
+position = Vector2(35, 24)
+scale = Vector2(0.45, 0.45)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("2_tcpuk")]
+position = Vector2(46, -23)
+scale = Vector2(0.45, 0.45)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bocrkdxm3to40"]
+
+[ext_resource type="Script" path="res://Scripts/canvas.gd" id="1_05buq"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_05buq")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.902785, 0.80879, 0.295477, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Coins: 0"

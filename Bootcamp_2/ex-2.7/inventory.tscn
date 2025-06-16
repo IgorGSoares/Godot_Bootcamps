@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://bar6prn3ybpr2"]
+
+[ext_resource type="Script" path="res://button_inventory.gd" id="1_538vh"]
+[ext_resource type="Script" path="res://inventory.gd" id="1_p2fbm"]
+[ext_resource type="Texture2D" uid="uid://budh38cfju31x" path="res://square_128.jpg" id="1_y6vr4"]
+[ext_resource type="Script" path="res://button_item.gd" id="2_234if"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5pem"]
+size = Vector2(128, 128)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_p2fbm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 510.0
+offset_top = 570.0
+offset_right = -494.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Inventory"
+script = ExtResource("1_538vh")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_right = 1.001
+anchor_bottom = 0.735
+offset_right = -0.1521
+offset_bottom = -0.279999
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/GridContainer"]
+position = Vector2(420, 232)
+script = ExtResource("2_234if")
+item_name = "Sword"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/GridContainer/Area2D"]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_y6vr4")
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Area2D"]
+offset_left = -65.0
+offset_top = 41.0
+offset_right = 64.0
+offset_bottom = 64.0
+text = "Item"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GridContainer/Area2D"]
+shape = SubResource("RectangleShape2D_m5pem")
+
+[node name="Area2D2" type="Area2D" parent="CanvasLayer/GridContainer"]
+position = Vector2(576, 232)
+script = ExtResource("2_234if")
+id = 1
+item_name = "Potion"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/GridContainer/Area2D2"]
+modulate = Color(0, 1, 0, 1)
+texture = ExtResource("1_y6vr4")
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Area2D2"]
+offset_left = -65.0
+offset_top = 41.0
+offset_right = 64.0
+offset_bottom = 64.0
+text = "Item"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GridContainer/Area2D2"]
+shape = SubResource("RectangleShape2D_m5pem")
+
+[node name="Area2D3" type="Area2D" parent="CanvasLayer/GridContainer"]
+position = Vector2(736, 232)
+script = ExtResource("2_234if")
+id = 2
+item_name = "Boots"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/GridContainer/Area2D3"]
+modulate = Color(0, 0, 1, 1)
+texture = ExtResource("1_y6vr4")
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/Area2D3"]
+offset_left = -65.0
+offset_top = 41.0
+offset_right = 64.0
+offset_bottom = 64.0
+text = "Item"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GridContainer/Area2D3"]
+shape = SubResource("RectangleShape2D_m5pem")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://dh11r4gvc37x5"]
+
+[ext_resource type="Script" path="res://particles_config.gd" id="1_1m3wb"]
+[ext_resource type="Texture2D" uid="uid://cuwtvlvqiy5mw" path="res://addons/kenney_particle_pack/smoke_01.png" id="2_8cmdi"]
+
+[sub_resource type="Gradient" id="Gradient_auyrn"]
+offsets = PackedFloat32Array(0, 0.584071, 1)
+colors = PackedColorArray(0.994133, 0.929194, 0, 1, 1, 0.160784, 0.239216, 1, 1, 1, 1, 0.156863)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1dvae"]
+gradient = SubResource("Gradient_auyrn")
+
+[sub_resource type="Curve" id="Curve_x2jt1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wnedg"]
+curve = SubResource("Curve_x2jt1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ancxv"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1.98, 1.52, 1)
+gravity = Vector3(0, -98, 0)
+scale_min = 4.5
+scale_max = 7.5
+scale_curve = SubResource("CurveTexture_wnedg")
+color_ramp = SubResource("GradientTexture1D_1dvae")
+turbulence_enabled = true
+turbulence_noise_scale = 1.611
+
+[sub_resource type="Gradient" id="Gradient_1y2dy"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4kan5"]
+gradient = SubResource("Gradient_1y2dy")
+
+[sub_resource type="Curve" id="Curve_c4kf6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3172c"]
+curve = SubResource("Curve_c4kf6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_40pnv"]
+lifetime_randomness = 0.07
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 30.0
+initial_velocity_min = 25.0
+initial_velocity_max = 75.0
+gravity = Vector3(0, 0, 0)
+damping_min = 20.0
+damping_max = 20.0
+scale_min = 0.03
+scale_max = 0.08
+scale_curve = SubResource("CurveTexture_3172c")
+color_ramp = SubResource("GradientTexture1D_4kan5")
+turbulence_enabled = true
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-29, 0)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_ancxv")
+script = ExtResource("1_1m3wb")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_40pnv")
+texture = ExtResource("2_8cmdi")
+explosiveness = 1.0
+script = ExtResource("1_1m3wb")

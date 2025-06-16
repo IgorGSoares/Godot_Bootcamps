@@ -1,0 +1,7 @@
+https://www.youtube.com/watch?v=FZ_nld_8NZg
+
+https://www.youtube.com/watch?v=4hnWaAn7djk
+
+https://www.reddit.com/r/godot/comments/1b8xuph/is_there_a_way_to_have_scripts_as_variables/
+
+https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bltqo5hcyya2x"]
+
+[ext_resource type="Script" path="res://scripts/Simple_Move.gd" id="1_mx1kw"]
+[ext_resource type="Texture2D" uid="uid://brdrvppw1tdgh" path="res://sprites/icon.svg" id="2_6qbp6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3p15"]
+size = Vector2(133, 133)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_mx1kw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0.196078, 1)
+texture = ExtResource("2_6qbp6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_b3p15")

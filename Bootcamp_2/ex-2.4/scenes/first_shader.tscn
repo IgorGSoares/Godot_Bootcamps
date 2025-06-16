@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuap2ekl80jm1"]
+
+[ext_resource type="Shader" path="res://shaders/first_shader.gdshader" id="1_1p71b"]
+[ext_resource type="Texture2D" uid="uid://cfj4u8yjkvum7" path="res://square_128.jpg" id="2_6wo4i"]
+[ext_resource type="Script" path="res://scripts/edit_shader.gd" id="3_5xlcs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ioxn0"]
+shader = ExtResource("1_1p71b")
+shader_parameter/blue = 1.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ioxn0")
+position = Vector2(-288, 85)
+texture = ExtResource("2_6wo4i")
+script = ExtResource("3_5xlcs")

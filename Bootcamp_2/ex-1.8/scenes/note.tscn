@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx71sfuu7k1ir"]
+
+[ext_resource type="Script" path="res://scripts/note.gd" id="1_yeyme"]
+[ext_resource type="AudioStream" uid="uid://mrife5rivip8" path="res://sounds/pickupCoin(2).wav" id="2_r21b1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w7knq"]
+
+[node name="Area2D" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_yeyme")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_r21b1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w7knq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd8igpexa0smo"]
+
+[ext_resource type="AudioStream" uid="uid://dxtdcy2am3ev2" path="res://sound/hitHurt.wav" id="1_imwo5"]
+[ext_resource type="Script" path="res://scripts/clickTarget.gd" id="2_qefy6"]
+[ext_resource type="Texture2D" uid="uid://ctng1nhwgnd31" path="res://sprites/button.png" id="2_rnarm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwv3l"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_imwo5")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_qefy6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+modulate = Color(0.411765, 0.682353, 0.901961, 1)
+position = Vector2(9.53674e-07, 0)
+scale = Vector2(0.0318628, 0.0352942)
+texture = ExtResource("2_rnarm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("RectangleShape2D_wwv3l")

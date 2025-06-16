@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://d247ubxptqgjp"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_fe1p4"]
+[ext_resource type="Texture2D" uid="uid://dbankogsftu5p" path="res://icon.svg" id="1_pjgr2"]
+[ext_resource type="Script" path="res://player.gd" id="3_6gs2m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3h4t4"]
+radius = 282.91
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_54tab"]
+radius = 91.4385
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("patrol_points")]
+position = Vector2(-478, -256)
+scale = Vector2(0.701375, 0.701375)
+script = ExtResource("1_fe1p4")
+patrol_points = [NodePath("../Patrol point-1"), NodePath("../Patrol point-2"), NodePath("../Patrol point-3")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+modulate = Color(1, 0.101961, 0.0980392, 1)
+texture = ExtResource("1_pjgr2")
+
+[node name="Area2D" type="Area2D" parent="Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
+shape = SubResource("CircleShape2D_3h4t4")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(503, -261)
+scale = Vector2(0.472678, 0.472678)
+script = ExtResource("3_6gs2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_pjgr2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_54tab")
+
+[node name="Patrol point-1" type="Marker2D" parent="."]
+position = Vector2(-478, -256)
+
+[node name="Patrol point-2" type="Marker2D" parent="."]
+position = Vector2(-146, 243)
+
+[node name="Patrol point-3" type="Marker2D" parent="."]
+position = Vector2(495, 2)
+
+[connection signal="body_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_body_exited"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://j14wrmtrwe0l"]
+
+[ext_resource type="Script" path="res://display_text.gd" id="1_riqo3"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_riqo3")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 423.0
+offset_top = 70.0
+offset_right = 740.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(0.907143, 0.520447, 5.77569e-07, 1)
+theme_override_font_sizes/font_size = 66
+text = "Cur numb"
+horizontal_alignment = 1
+
+[node name="Button 1" type="Button" parent="CanvasLayer"]
+offset_left = 348.0
+offset_top = 326.0
+offset_right = 428.0
+offset_bottom = 357.0
+scale = Vector2(2, 2.24)
+text = "Button 1"
+
+[node name="Button 2" type="Button" parent="CanvasLayer"]
+offset_left = 639.0
+offset_top = 326.0
+offset_right = 719.0
+offset_bottom = 357.0
+scale = Vector2(2, 2.24)
+text = "Button 2"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/Button 1" to="CanvasLayer" method="_on_button_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button 2" to="CanvasLayer" method="_on_button_2_pressed"]

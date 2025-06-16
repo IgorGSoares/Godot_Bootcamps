@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd8igpexa0smo"]
+
+[ext_resource type="AudioStream" uid="uid://dxtdcy2am3ev2" path="res://sound/hitHurt.wav" id="1_imwo5"]
+[ext_resource type="Script" path="res://scripts/canvas_log.gd" id="1_k7j7t"]
+[ext_resource type="AudioStream" uid="uid://dymihp1fuywkc" path="res://sound/Nihilore - Home - 02 Dilemma.mp3" id="2_k7tht"]
+[ext_resource type="Script" path="res://scripts/clickTarget.gd" id="2_qefy6"]
+[ext_resource type="Texture2D" uid="uid://ctng1nhwgnd31" path="res://sprites/button.png" id="2_rnarm"]
+[ext_resource type="Texture2D" uid="uid://ifpt211xgw31" path="res://sprites/button_2.png" id="3_oanvy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwv3l"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_k7j7t")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+offset_left = 396.0
+offset_top = 133.0
+offset_right = 734.0
+offset_bottom = 266.0
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.843886, 0.766879, 0.227769, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+text = "Music On"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+
+[node name="Background" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_k7tht")
+autoplay = true
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_qefy6")
+sprite_pause = ExtResource("3_oanvy")
+sprite_play = ExtResource("2_rnarm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+modulate = Color(0.411765, 0.682353, 0.901961, 1)
+position = Vector2(9.53674e-07, 0)
+scale = Vector2(0.0318628, 0.0352942)
+texture = ExtResource("2_rnarm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("RectangleShape2D_wwv3l")
+
+[node name="AudioEffect" type="AudioStreamPlayer2D" parent="Area2D"]
+stream = ExtResource("1_imwo5")
+
+[connection signal="input_event" from="Area2D" to="CanvasLayer" method="_on_area_2d_input_event"]

@@ -1,0 +1,118 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0pickf4wrwbt"]
+
+[ext_resource type="Script" path="res://http_test.gd" id="1_7mp57"]
+[ext_resource type="Script" path="res://input_search.gd" id="2_75vgg"]
+
+[node name="Main" type="Node"]
+script = ExtResource("2_75vgg")
+
+[node name="HTTP" type="Node" parent="."]
+script = ExtResource("1_7mp57")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="HTTP"]
+
+[node name="GAME" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="GAME"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="GAME"]
+
+[node name="Result" type="Label" parent="GAME/CanvasLayer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.366
+offset_left = 43.0
+offset_right = -38.0
+offset_bottom = -0.168015
+theme_override_font_sizes/font_size = 42
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Insert Name" type="Label" parent="GAME/CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.454
+anchor_right = 1.0
+anchor_bottom = 0.454
+offset_left = 20.0
+offset_top = -39.192
+offset_right = -817.0
+offset_bottom = 34.808
+theme_override_font_sizes/font_size = 54
+text = "Insert name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Input Name" type="LineEdit" parent="GAME/CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.593
+anchor_right = 1.0
+anchor_bottom = 0.593
+offset_left = 37.0
+offset_top = -38.264
+offset_right = -840.0
+offset_bottom = 33.736
+
+[node name="Insert Lat" type="Label" parent="GAME/CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.454
+anchor_right = 1.0
+anchor_bottom = 0.454
+offset_left = 432.0
+offset_top = -39.192
+offset_right = -405.0
+offset_bottom = 34.808
+theme_override_font_sizes/font_size = 54
+text = "Insert Lat"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Input Lat" type="LineEdit" parent="GAME/CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.593
+anchor_right = 1.0
+anchor_bottom = 0.593
+offset_left = 449.0
+offset_top = -38.264
+offset_right = -428.0
+offset_bottom = 33.736
+
+[node name="Insert Long" type="Label" parent="GAME/CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.454
+anchor_right = 1.0
+anchor_bottom = 0.454
+offset_left = 799.0
+offset_top = -37.192
+offset_right = -38.0
+offset_bottom = 36.808
+theme_override_font_sizes/font_size = 54
+text = "Insert Long"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Input  Long" type="LineEdit" parent="GAME/CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.593
+anchor_right = 1.0
+anchor_bottom = 0.593
+offset_left = 816.0
+offset_top = -36.264
+offset_right = -61.0
+offset_bottom = 35.736
+
+[node name="Button LatLong" type="Button" parent="GAME/CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 644.0
+offset_top = -160.0
+offset_right = 928.0
+offset_bottom = -94.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 42
+text = "Find Lat/Long"
+
+[connection signal="text_submitted" from="GAME/CanvasLayer/Input Name" to="." method="_on_input_name_text_submitted"]
+[connection signal="text_changed" from="GAME/CanvasLayer/Input Lat" to="." method="_on_input_lat_text_changed"]
+[connection signal="text_changed" from="GAME/CanvasLayer/Input  Long" to="." method="_on_input__long_text_changed"]
+[connection signal="pressed" from="GAME/CanvasLayer/Button LatLong" to="." method="_on_button_lat_long_pressed"]

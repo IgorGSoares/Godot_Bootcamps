@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbvytnkityvjg"]
+
+[ext_resource type="Script" path="res://draw_mouse.gd" id="1_74y4w"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_74y4w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Line" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.994
+anchor_bottom = 0.994
+offset_left = 219.0
+offset_top = -87.112
+offset_right = 337.0
+offset_bottom = -5.112
+theme_override_font_sizes/font_size = 54
+text = "Line"
+
+[node name="Rectangle" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.475
+anchor_top = 0.994
+anchor_right = 0.475
+anchor_bottom = 0.994
+offset_left = -131.2
+offset_top = -89.112
+offset_right = 131.8
+offset_bottom = -7.112
+theme_override_font_sizes/font_size = 54
+text = "Rectangle"
+
+[node name="Circle" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.994
+anchor_right = 1.0
+anchor_bottom = 0.994
+offset_left = -391.0
+offset_top = -89.112
+offset_right = -128.0
+offset_bottom = -7.112
+theme_override_font_sizes/font_size = 54
+text = "Circle"
+
+[connection signal="pressed" from="CanvasLayer/Line" to="." method="_on_line_pressed"]
+[connection signal="pressed" from="CanvasLayer/Rectangle" to="." method="_on_rectangle_pressed"]
+[connection signal="pressed" from="CanvasLayer/Circle" to="." method="_on_circle_pressed"]

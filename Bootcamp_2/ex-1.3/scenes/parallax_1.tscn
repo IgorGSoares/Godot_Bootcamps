@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://c63k5jxkdgba4"]
+
+[ext_resource type="Texture2D" uid="uid://dmmyb2itmys3m" path="res://sprites/1.png" id="1_ys1ue"]
+[ext_resource type="Texture2D" uid="uid://vj7wvwfdk2rm" path="res://sprites/2.png" id="2_6b52s"]
+[ext_resource type="PackedScene" uid="uid://bltqo5hcyya2x" path="res://scenes/character_body_2d.tscn" id="2_eyh8x"]
+[ext_resource type="Texture2D" uid="uid://b7xvsp67mt1lr" path="res://sprites/3.png" id="3_u3u3n"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Ocean" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ocean"]
+texture = ExtResource("1_ys1ue")
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+visible = false
+texture_filter = 1
+texture = ExtResource("2_6b52s")
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Sky"]
+texture_filter = 1
+offset_top = -165.0
+offset_right = 576.0
+offset_bottom = 159.0
+texture = ExtResource("2_6b52s")
+stretch_mode = 1
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.25, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+visible = false
+texture_filter = 1
+texture = ExtResource("3_u3u3n")
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Clouds"]
+offset_top = -163.0
+offset_right = 576.0
+offset_bottom = 161.0
+texture = ExtResource("3_u3u3n")
+stretch_mode = 1
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_eyh8x")]
+scale = Vector2(0.48, 0.48)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+scale = Vector2(2.08333, 2.08333)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true

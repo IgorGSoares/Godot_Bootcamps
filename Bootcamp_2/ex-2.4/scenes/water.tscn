@@ -1,0 +1,148 @@
+[gd_scene load_steps=7 format=3 uid="uid://biubtc8sbo8rk"]
+
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="1_wdd2y"]
+[ext_resource type="Texture2D" uid="uid://cfj4u8yjkvum7" path="res://square_128.jpg" id="2_q57il"]
+[ext_resource type="Script" path="res://scripts/water_config.gd" id="3_imioc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6q4t6"]
+frequency = 0.03
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kuelw"]
+seamless = true
+noise = SubResource("FastNoiseLite_6q4t6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kb3hu"]
+shader = ExtResource("1_wdd2y")
+shader_parameter/water_color = Color(0.111638, 0.213141, 0.501905, 1)
+shader_parameter/time_multiplyer = 0.02
+shader_parameter/wave_noise = SubResource("NoiseTexture2D_kuelw")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Time Noise" type="GridContainer" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -147.0
+offset_top = 28.0
+offset_right = -47.0
+offset_bottom = 87.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Time Noise"]
+layout_mode = 2
+text = "Time Noise"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Control/Time Noise"]
+layout_mode = 2
+min_value = -0.1
+max_value = 0.1
+step = 0.01
+value = 0.02
+
+[node name="Frequency" type="GridContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -147.0
+offset_top = 91.0
+offset_right = -47.0
+offset_bottom = 150.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Frequency"]
+layout_mode = 2
+text = "Frequency"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Control/Frequency"]
+layout_mode = 2
+max_value = 0.5
+step = 0.01
+value = 0.03
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Cenario" type="Node2D" parent="."]
+
+[node name="BG" type="Sprite2D" parent="Cenario"]
+modulate = Color(0.707967, 0.707967, 0.707967, 1)
+position = Vector2(-2.99997, -91)
+scale = Vector2(9.5625, 4.14062)
+texture = ExtResource("2_q57il")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Cenario"]
+modulate = Color(0.999999, 0.542039, 0.285366, 1)
+position = Vector2(3.99999, 179.25)
+scale = Vector2(9.17188, 0.792969)
+texture = ExtResource("2_q57il")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Cenario"]
+modulate = Color(0.999999, 0.542039, 0.285366, 1)
+position = Vector2(6.99999, 62.75)
+scale = Vector2(9.20313, 0.183594)
+texture = ExtResource("2_q57il")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Cenario"]
+modulate = Color(0.999999, 0.542039, 0.285366, 1)
+position = Vector2(-555.5, 96.75)
+scale = Vector2(0.382813, 0.644531)
+texture = ExtResource("2_q57il")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Cenario"]
+modulate = Color(0.999999, 0.542039, 0.285366, 1)
+position = Vector2(-310, 97)
+scale = Vector2(0.347656, 0.644531)
+texture = ExtResource("2_q57il")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Cenario"]
+modulate = Color(0.999999, 0.542039, 0.285366, 1)
+position = Vector2(0, 97)
+scale = Vector2(0.347656, 0.644531)
+texture = ExtResource("2_q57il")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Cenario"]
+modulate = Color(0.999999, 0.542039, 0.285366, 1)
+position = Vector2(297, 97)
+scale = Vector2(0.347656, 0.644531)
+texture = ExtResource("2_q57il")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Cenario"]
+modulate = Color(0.999999, 0.542039, 0.285366, 1)
+position = Vector2(570, 98)
+scale = Vector2(0.347656, 0.644531)
+texture = ExtResource("2_q57il")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Cenario"]
+modulate = Color(0.990762, 0.870927, 7.70092e-07, 1)
+position = Vector2(-296, -135)
+scale = Vector2(0.78125, 0.798828)
+texture = ExtResource("2_q57il")
+
+[node name="Player" type="Sprite2D" parent="Cenario"]
+modulate = Color(3.46541e-06, 0.702308, 0.524775, 1)
+position = Vector2(411, 87)
+scale = Vector2(0.556641, 0.644531)
+texture = ExtResource("2_q57il")
+
+[node name="Water" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_kb3hu")
+position = Vector2(-2.00004, 249.5)
+scale = Vector2(9.26563, 1.17969)
+texture = ExtResource("2_q57il")
+script = ExtResource("3_imioc")
+
+[connection signal="value_changed" from="CanvasLayer/Control/Time Noise/HSlider" to="Water" method="_on_time_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Control/Frequency/HSlider" to="Water" method="_on_frequency_slider_value_changed"]

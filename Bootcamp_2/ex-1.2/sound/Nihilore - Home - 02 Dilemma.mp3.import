@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dymihp1fuywkc"
+path="res://.godot/imported/Nihilore - Home - 02 Dilemma.mp3-a510af5367a2d74d354fffc0e3c54ee5.mp3str"
+
+[deps]
+
+source_file="res://sound/Nihilore - Home - 02 Dilemma.mp3"
+dest_files=["res://.godot/imported/Nihilore - Home - 02 Dilemma.mp3-a510af5367a2d74d354fffc0e3c54ee5.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
